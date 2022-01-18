@@ -1,0 +1,20 @@
+# Use lógica em tudo!!!
+from os.path import exists
+import pandas as pd
+from datetime import datetime
+
+# criar o arquivo:
+data = datetime.now()
+data = data.strftime('%d-%m-%Y')
+
+def pedidosHoje(): #executar apenas se não houver a planilha na pasta!!!!
+    novo = {'Nome do cliente': [], 'cpf/cnpj': [], 'Endereço': [], 'Telefone': []}
+    dadosnovo = pd.DataFrame(data= novo)
+    dadosnovo.to_excel(f'{data}.xlsx', index= False)
+
+if exists(f'{data}.xlsx') is False:
+    pedidosHoje()
+
+#Ler e editar o arquivo:
+tabela = pd.read_excel(f'{data}.xlsx')
+print(tabela)
