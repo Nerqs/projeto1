@@ -1,7 +1,10 @@
 # Use lógica em tudo!!!
 from os.path import exists
 import pandas as pd
+import openpyxl
 from datetime import datetime
+
+#preencher os dados:
 
 # criar o arquivo:
 data = datetime.now()
@@ -16,5 +19,29 @@ if exists(f'{data}.xlsx') is False:
     pedidosHoje()
 
 #Ler e editar o arquivo:
-tabela = pd.read_excel(f'{data}.xlsx')
-print(tabela)
+while True:
+    nome = str(input('Nome completo/Razão social: '))
+    while True:
+        try:
+            cpfcnpj = int(input('Cpf/Cnpj: '))
+            break
+        except:
+            print('Digite apenas os numeros')
+            continue
+    endereco = str(input('Endereço completo: '))
+    while True:
+        try:
+            telefone = int(input('Telefone: '))
+            break
+        except:
+            print('Digite apenas os numeros')
+            continue
+    tabela = pd.read_excel(f'{data}.xlsx')
+    tabela = tabela.append({'Nome do cliente': nome, 'cpf/cnpj': cpfcnpj, 'Endereço': endereco, 'Telefone': telefone}, ignore_index=True)
+    tabela.to_excel(f'{data}.xlsx', index= False)
+    op = str(input('Deseja continuar? [S/N]')).lower()
+    if op == 'n':
+        print(tabela)
+        break
+    elif op != 's':
+        print('Essa não é uma opção valida!')
