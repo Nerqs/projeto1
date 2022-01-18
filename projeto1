@@ -4,8 +4,6 @@ import pandas as pd
 import openpyxl
 from datetime import datetime
 
-#preencher os dados:
-
 # criar o arquivo:
 data = datetime.now()
 data = data.strftime('%d-%m-%Y')
@@ -18,7 +16,7 @@ def pedidosHoje(): #executar apenas se não houver a planilha na pasta!!!!
 if exists(f'{data}.xlsx') is False:
     pedidosHoje()
 
-#Ler e editar o arquivo:
+#Ler e acrescentas infos ao arquivo:
 while True:
     nome = str(input('Nome completo/Razão social: '))
     while True:
