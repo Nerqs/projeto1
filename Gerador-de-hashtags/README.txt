@@ -1,0 +1,3 @@
+Gerador de hashtags para insta.
+Hashtags no insta podem dar dor de cabeça, se você usar muitas repetidas ou um numero repedidos delas acusa spam.
+Para isso desenvolvi esse gerador de hashtags bem simples de usar, adicione suas hashtags no planilha hashtags.xslx, sempre na coluna 'Hashtags', abra e o exe sempre na mesma pasta da planilha e em um clique você gera a quantidade desejada de hashtags aleatorias baseada na planilha, e ja copia essas hashtags para area de transferencia, ou seja, só colar.
