@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerador de Hashtags</title>
+    <link rel="stylesheet" href="estilo.css">
+
+</head>
+<body>
+    <h1>Gerador de Hashtags</h1>
+    <p>
+        Selecione o arquivo para começar! 
+        <input type="file" id="arquivo" onchange="analizar(this.files)">
+        Quantos Hashtags você deseja? <input type="number" name='txtquant' id="txtquant">
+        <input type="button" value="Começar" onclick="comecar()">
+    </p>
+    <div name="texto" id="texto">
+        Resultado aqui....
+    </div>
+
+    <input type="button" value="Copiar" onclick="copiar()">
+
+    <script src="script.js"></script>
+
+</body>
+</html>
