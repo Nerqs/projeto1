@@ -1,2 +1,2 @@
-# projeto1
- tentado criar um programa que salve infos de produtos para vendas.
+# projetos
+ Aqui guardarei todos os meus projetos feitos com o aprendizado das minhas aulas.
