@@ -10,7 +10,7 @@ from datetime import date
 #dados:
 modelos = [
     'Mandala fotogravação',
-    'Coraçãozinho c/ gravação de nome',
+    'Coraçãozinho c/ gravação',
     'Relicário coração'
 ]
 vmodelosm1 = [ #Característica
@@ -51,12 +51,16 @@ def gerar_relatorio():
     resposta = messagebox.askquestion('Confirmar', 'Você tem certeza que quer gerar o relatório? Isso fechara a semana atual!!!')
     if resposta == 'yes':
         relatorio = pd.read_excel('vendas.xlsx')
+        relatorio = relatorio.fillna(value='Padrão')
         relatorio = relatorio.groupby(['Modelo', 'Formato', 'Cor do banho'], as_index=False, dropna=False).size()
         relatorio = relatorio.rename({'size': 'Quantidade'}, axis='columns')
-        relatorio.to_excel('quantidadepedido.xlsx', index=False)
+        data = date.today()
+        data = data.strftime('%d-%m-%Y')
+        relatorio.loc[-1] = [f'Relatorio gerado em {data}', '', '', '']
+        relatorio.to_html('quantidadepedido.html', index=False)
         if exists('./Relatorios-Anteriores') is False:
             os.mkdir('./Relatorios-Anteriores')
-        data = date.today()
+
         if exists(f'./Relatorios-Anteriores/vendas{data}.xlsl') is True:
             messagebox.showinfo('', 'Erro: O arquivo ja existe na pasta Relatorios-Anteriores')
         else:
@@ -81,7 +85,7 @@ def janela_registrar():
                         {'Número do pedido': pedido, 'Modelo': modelo, 'Característica': caracteristica, 'Formato': formato, 'Foto': foto, 'Cor do banho': corbanho},
                         ignore_index=True)
                     tabela.to_excel('vendas.xlsx', index=False)
-                    clipboard.copy(f'Pedido n°:{pedido}. \n{modelo} {caracteristica} {formato} {foto} {corbanho}')
+                    clipboard.copy(f'Pedido n°: {pedido}. \nModelo: {modelo} {caracteristica} \nFormato: {formato} \nFoto: {foto} \nCor do banho: {corbanho}')
                     messagebox.showinfo('', 'Dados registrados e copiado com sucesso!')
                     janela2.destroy()
 
@@ -120,7 +124,7 @@ def janela_registrar():
             botao3 = Button(janela2, text='Registrar', command=registrar1)
             botao3.grid(column=0, row=7, padx=5, pady=5, columnspan=4)
 
-        elif variable.get() == 'Coraçãozinho c/ gravação de nome':
+        elif variable.get() == 'Coraçãozinho c/ gravação':
             def registrar2():
                 pedido = pedido_entry.get()
                 modelo = variable.get()
@@ -134,7 +138,7 @@ def janela_registrar():
                         {'Número do pedido': pedido, 'Modelo': modelo, 'Cor do banho': corbanho, 'Gravar': gravar},
                         ignore_index=True)
                     tabela.to_excel('vendas.xlsx', index=False)
-                    clipboard.copy(f'Pedido n°:{pedido}. \n{modelo} {corbanho} {gravar}')
+                    clipboard.copy(f'Pedido n°: {pedido}. \nModelo: {modelo} \nCor do banho: {corbanho} \nGravar: {gravar}')
                     messagebox.showinfo('', 'Dados registrados e copiado com sucesso!')
                     janela2.destroy()
 
@@ -168,7 +172,7 @@ def janela_registrar():
                         {'Número do pedido': pedido, 'Modelo': modelo, 'Cor do banho': corbanho},
                         ignore_index=True)
                     tabela.to_excel('vendas.xlsx', index=False)
-                    clipboard.copy(f'Pedido n°:{pedido}. \n{modelo} {corbanho}')
+                    clipboard.copy(f'Pedido n°:{pedido}. \nModelo: {modelo} \nCor do banho: {corbanho}')
                     messagebox.showinfo('', 'Dados registrados e copiado com sucesso!')
                     janela2.destroy()
 
