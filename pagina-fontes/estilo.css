@@ -1,0 +1,37 @@
+@font-face {
+    font-family: fonte1;
+    src: url(fontes/Comforter-Regular.woff);
+}
+
+@font-face {
+    font-family: fonte2;
+    src: url(fontes/Redressed-Regular.woff);
+}
+
+@font-face {
+    font-family: fonte3;
+    src: url(fontes/SyneTactile-Regular.woff);
+}
+
+#fonte1, #fonte2, #fonte3 {
+    font-size: 22px;
+    margin: 20px;
+}
+
+#fonte1span {
+    font-family: fonte1;
+    font-size:100px;
+    margin: 20px;
+}
+
+#fonte2span {
+    font-family: fonte2;
+    font-size: 100px;
+    margin: 20px;
+}
+
+#fonte3span {
+    font-family: fonte3;
+    font-size: 100px;
+    margin: 20px;
+}

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fontes</title>
+    <link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+    <h1>Digite o nome/frase para ver com a fonte:</h1>
+
+    <form>
+        <label for="aqui">Digite aqui:</label>
+        <input type="text" name="aqui" id="aqui"> 
+
+        <input type="button" value="Carregar" onclick="fontes()">
+    </form>
+
+    <div id="fonte1">
+        Fonte 1: 
+        <span id="fonte1span"></span>
+    </div>
+    <div id="fonte2">
+        Fonte 2: 
+        <span id="fonte2span"></span>
+    </div>
+    <div id="fonte3">
+        Fonte 3: 
+        <span id="fonte3span"></span>
+    </div>
+
+    <script>
+        function fontes() {
+        let frase = document.getElementById('aqui')
+        let fonte1span = document.getElementById('fonte1span')
+        let fonte2span = document.getElementById('fonte2span')
+        let fonte3span = document.getElementById('fonte3span')
+        fonte1span.innerHTML = frase.value
+        fonte2span.innerHTML = frase.value
+        fonte3span.innerHTML = frase.value
+    }
+    </script>
+</body>
+</html>
