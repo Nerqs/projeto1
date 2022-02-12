@@ -1,37 +1,146 @@
+body {
+    margin: 0 auto;
+    padding: 0;
+    width: 500px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+h1 {
+    font-size: 1.5em;
+    background-color: rgb(230, 230, 230);
+    padding: 20px 0;
+    margin: 0;
+    text-align: center;
+}
+
+/*area do input*/
+#form {
+    padding: 20px 0;
+    font-size: 1.3em;
+}
+#form input[type="text"] {
+    width: 62%;
+}
+
+/*Fontes*/
 @font-face {
     font-family: fonte1;
-    src: url(fontes/Comforter-Regular.woff);
+    src: url(fontes/fonte1.woff);
 }
 
 @font-face {
     font-family: fonte2;
-    src: url(fontes/Redressed-Regular.woff);
+    src: url(fontes/fonte2.woff);
 }
 
 @font-face {
     font-family: fonte3;
-    src: url(fontes/SyneTactile-Regular.woff);
+    src: url(fontes/fonte3.woff);
 }
 
-#fonte1, #fonte2, #fonte3 {
-    font-size: 22px;
-    margin: 20px;
+@font-face {
+    font-family: fonte4;
+    src: url(fontes/fonte4.woff);
+}
+
+@font-face {
+    font-family: fonte5;
+    src: url(fontes/fonte5.woff);
+}
+
+@font-face {
+    font-family: fonte6;
+    src: url(fontes/fonte6.woff);
+}
+
+@font-face {
+    font-family: fonte7;
+    src: url(fontes/fonte7.woff);
+}
+
+@font-face {
+    font-family: fonte8;
+    src: url(fontes/fonte8.woff);
+}
+
+@font-face {
+    font-family: fonte9;
+    src: url(fontes/fonte9.woff);
+}
+
+@font-face {
+    font-family: fonte10;
+    src: url(fontes/fonte10.woff);
+}
+
+#fonte1, #fonte3, #fonte5, #fonte7, #fonte9 {
+    background-color: rgb(230, 230, 230);
+    padding: 30px 0;
+    font-size: 1.5em;
+}
+
+#fonte2, #fonte4, #fonte6, #fonte8, #fonte10 {
+    padding: 30px 0;
+    font-size: 1.5em;
 }
 
 #fonte1span {
     font-family: fonte1;
-    font-size:100px;
-    margin: 20px;
+    font-size: 100px;
+    margin-left: 20px;
 }
 
 #fonte2span {
     font-family: fonte2;
     font-size: 100px;
-    margin: 20px;
+    margin-left: 20px;
 }
 
 #fonte3span {
     font-family: fonte3;
     font-size: 100px;
-    margin: 20px;
+    margin-left: 20px;
+}
+
+#fonte4span {
+    font-family: fonte4;
+    font-size: 100px;
+    margin-left: 20px;
+}
+
+#fonte5span {
+    font-family: fonte5;
+    font-size: 100px;
+    margin-left: 20px;
+}
+
+#fonte6span {
+    font-family: fonte6;
+    font-size: 100px;
+    margin-left: 20px;
+}
+
+#fonte7span {
+    font-family: fonte7;
+    font-size: 100px;
+    margin-left: 20px;
+}
+
+
+#fonte8span {
+    font-family: fonte8;
+    font-size: 100px;
+    margin-left: 20px;
+}
+
+#fonte9span {
+    font-family: fonte9;
+    font-size: 100px;
+    margin-left: 20px;
+}
+
+#fonte10span {
+    font-family: fonte10;
+    font-size: 100px;
+    margin-left: 20px;
 }
