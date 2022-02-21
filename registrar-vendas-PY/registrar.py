@@ -11,7 +11,10 @@ from datetime import date
 modelos = [
     'Mandala fotogravação',
     'Coraçãozinho c/ gravação',
-    'Relicário coração'
+    'Relicário coração',
+    'Relicário cartinha c/ gravação',
+    'Relicário cartinha s/ gravação',
+    'Formato personalizado'
 ]
 vmodelosm1 = [ #Característica
     'Com frase',
@@ -159,8 +162,92 @@ def janela_registrar():
             botao3 = Button(janela2, text='Registrar', command=registrar2)
             botao3.grid(column=0, row=5, padx=5, pady=5, columnspan=4)
 
-        else:
+        elif variable.get() == 'Relicário cartinha c/ gravação':
             def registrar3():
+                pedido = pedido_entry.get()
+                modelo = variable.get()
+                corbanho= variable5.get()
+                if pedido == '' or modelo == '' or corbanho == '':
+                    messagebox.showinfo('Erro', 'Todos os campos devem ser selecionados')
+                else:
+                    tabela = pd.read_excel('vendas.xlsx')
+                    tabela = tabela.append(
+                        {'Número do pedido': pedido, 'Modelo': modelo, 'Cor do banho': corbanho},
+                        ignore_index=True)
+                    tabela.to_excel('vendas.xlsx', index=False)
+                    clipboard.copy(f'Pedido n°: {pedido}. \nModelo: {modelo} \nCor do banho: {corbanho}')
+                    messagebox.showinfo('', 'Dados registrados e copiado com sucesso!')
+                    janela2.destroy()
+
+            vmodelom4_label = Label(janela2, text='Cor do banho:')
+            vmodelom4_label.grid(row=3, column=0, padx=5, pady=5, columnspan=2)
+
+            variable5 = StringVar(janela2)
+            variable5.set('')
+            vmodelom4_entry = OptionMenu(janela2, variable5, *vmodelosm4)
+            vmodelom4_entry.grid(row=3, column=2, padx=5, pady=5, columnspan=2)
+
+            botao3 = Button(janela2, text='Registrar', command=registrar3)
+            botao3.grid(column=0, row=5, padx=5, pady=5, columnspan=4)
+
+        elif variable.get() == 'Relicário cartinha s/ gravação':
+            def registrar4():
+                pedido = pedido_entry.get()
+                modelo = variable.get()
+                corbanho= variable5.get()
+                if pedido == '' or modelo == '' or corbanho == '':
+                    messagebox.showinfo('Erro', 'Todos os campos devem ser selecionados')
+                else:
+                    tabela = pd.read_excel('vendas.xlsx')
+                    tabela = tabela.append(
+                        {'Número do pedido': pedido, 'Modelo': modelo, 'Cor do banho': corbanho},
+                        ignore_index=True)
+                    tabela.to_excel('vendas.xlsx', index=False)
+                    clipboard.copy(f'Pedido n°: {pedido}. \nModelo: {modelo} \nCor do banho: {corbanho}')
+                    messagebox.showinfo('', 'Dados registrados e copiado com sucesso!')
+                    janela2.destroy()
+
+            vmodelom4_label = Label(janela2, text='Cor do banho:')
+            vmodelom4_label.grid(row=3, column=0, padx=5, pady=5, columnspan=2)
+
+            variable5 = StringVar(janela2)
+            variable5.set('')
+            vmodelom4_entry = OptionMenu(janela2, variable5, *vmodelosm4)
+            vmodelom4_entry.grid(row=3, column=2, padx=5, pady=5, columnspan=2)
+
+            botao3 = Button(janela2, text='Registrar', command=registrar4)
+            botao3.grid(column=0, row=5, padx=5, pady=5, columnspan=4)
+
+        elif variable.get() == 'Formato personalizado':
+            def registrar5():
+                pedido = pedido_entry.get()
+                modelo = variable.get()
+                corbanho= variable5.get()
+                if pedido == '' or modelo == '' or corbanho == '':
+                    messagebox.showinfo('Erro', 'Todos os campos devem ser selecionados')
+                else:
+                    tabela = pd.read_excel('vendas.xlsx')
+                    tabela = tabela.append(
+                        {'Número do pedido': pedido, 'Modelo': modelo, 'Cor do banho': corbanho},
+                        ignore_index=True)
+                    tabela.to_excel('vendas.xlsx', index=False)
+                    clipboard.copy(f'Pedido n°: {pedido}. \nModelo: {modelo} \nCor do banho: {corbanho}')
+                    messagebox.showinfo('', 'Dados registrados e copiado com sucesso!')
+                    janela2.destroy()
+
+            vmodelom4_label = Label(janela2, text='Cor do banho:')
+            vmodelom4_label.grid(row=3, column=0, padx=5, pady=5, columnspan=2)
+
+            variable5 = StringVar(janela2)
+            variable5.set('')
+            vmodelom4_entry = OptionMenu(janela2, variable5, *vmodelosm4)
+            vmodelom4_entry.grid(row=3, column=2, padx=5, pady=5, columnspan=2)
+
+            botao3 = Button(janela2, text='Registrar', command=registrar5)
+            botao3.grid(column=0, row=5, padx=5, pady=5, columnspan=4)
+
+        else:
+            def registrar6():
                 pedido = pedido_entry.get()
                 modelo = variable.get()
                 corbanho= variable5.get()
@@ -186,7 +273,7 @@ def janela_registrar():
             vmodelom4_entry = OptionMenu(janela2, variable5, *vmodelosm4)
             vmodelom4_entry.grid(row=3, column=2, padx=5, pady=5, columnspan=2)
 
-            botao3 = Button(janela2, text='Registrar', command=registrar3)
+            botao3 = Button(janela2, text='Registrar', command=registrar6)
             botao3.grid(column=0, row=4, padx=5, pady=5, columnspan=4)
 
     janela2 = Toplevel(janela)
